@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "title": "Irosekai 斓世 — A world woven in code",
+    "description": "Irosekai (斓世 / イロセカイ) is a small developer collective that treats colour and craft as first principles. Tools, interfaces, and things worth making."
+  },
+  "a11y": {
+    "skip": "Skip to main content",
+    "langSwitch": "Switch language",
+    "nav": "Main navigation",
+    "external": "Opens in a new tab",
+    "loading": "Loading"
+  },
+  "nav": {
+    "brand": "Irosekai",
+    "menu": "Menu",
+    "about": "About",
+    "projects": "Projects",
+    "activity": "Activity",
+    "join": "Join"
+  },
+  "lang": {
+    "label": "Language"
+  },
+  "hero": {
+    "overline": "DEVELOPMENT COLLECTIVE · EST. 2026",
+    "tagline": "A whole world, woven in code and painted in spectrum.",
+    "subline": "We build tools, interfaces, small games, and anything else worth making. Not minimal for its own sake — memorable on purpose.",
+    "scroll": "Scroll",
+    "ctaPrimary": "See the work",
+    "ctaSecondary": "GitHub org"
+  },
+  "marquee": {
+    "line": "IROSEKAI · 斓世 · いろせかい · COLORED WORLD"
+  },
+  "about": {
+    "eyebrow": "About / the world",
+    "title": "A dev collective that thinks in colour",
+    "lede": "\"Lán\" is multicoloured. \"Shì\" is the world. Together they name the thing we do: turn complicated technology into something with a hue.",
+    "body": [
+      "Irosekai started in 2026, out of a few people tired of grey interfaces. We don't believe software is only a tool — it can have temperament, texture, a reason to hold your eye two seconds longer.",
+      "Our output spans developer tooling, experimental interfaces, small games and infrastructure. Small in volume, but everything is finished, polished, and in the open."
+    ],
+    "stats": {
+      "repos": "Public repos",
+      "stars": "Stars earned",
+      "followers": "Followers",
+      "age": "Building since",
+      "ageUnit": "yrs"
+    }
+  },
+  "values": {
+    "eyebrow": "Principles",
+    "items": [
+      {
+        "num": "01",
+        "title": "Beautiful first, usable always",
+        "body": "Aesthetics aren't decoration; they're part of usability. We make the thing people want to touch, then make sure it holds up."
+      },
+      {
+        "num": "02",
+        "title": "Open source by default",
+        "body": "With rare exceptions everything lives in the open. You can read every line, and rewrite every line."
+      },
+      {
+        "num": "03",
+        "title": "Small team, slow craft",
+        "body": "We don't chase volume. Three finished things a year beats thirty mediocre ones."
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Projects / artifacts",
+    "title": "Things currently taking shape",
+    "lede": "Fetched live from the GitHub organisation — nothing to maintain by hand. New repo, new card, automatically.",
+    "filterAll": "All",
+    "sortLabel": "Sort",
+    "sort": {
+      "updated": "Recently updated",
+      "stars": "Most starred",
+      "name": "By name"
+    },
+    "count": "{count} public repos",
+    "state": {
+      "loading": "Fetching from GitHub…",
+      "empty": {
+        "title": "Quiet in here, for now",
+        "body": "The organisation just got started and the first repository is being written. When it lands, a card will grow here on its own."
+      },
+      "error": {
+        "title": "Couldn't reach the API",
+        "body": "Network hiccup, or GitHub's anonymous rate limit. Showing the local snapshot instead.",
+        "retry": "Retry"
+      }
+    },
+    "card": {
+      "noDescription": "No description yet",
+      "stars": "stars",
+      "forks": "forks",
+      "updated": "updated",
+      "open": "Open repository",
+      "archived": "Archived",
+      "new": "New",
+      "topics": "Topics"
+    },
+    "emptyCta": "Look on GitHub"
+  },
+  "activity": {
+    "eyebrow": "Activity / pulse",
+    "title": "What we've been doing",
+    "lede": "Straight from GitHub's public events, unwrapped.",
+    "empty": "No public activity to show yet.",
+    "viewAll": "View everything on GitHub",
+    "unknown": "New activity",
+    "types": {
+      "PushEvent": "Pushed to",
+      "CreateEvent": "Created",
+      "DeleteEvent": "Deleted branch",
+      "PullRequestEvent": "Pull request",
+      "IssuesEvent": "Updated an issue",
+      "IssueCommentEvent": "Commented on an issue",
+      "ReleaseEvent": "Released",
+      "WatchEvent": "Starred",
+      "ForkEvent": "Forked",
+      "PublicEvent": "Made public",
+      "MemberEvent": "Changed members"
+    }
+  },
+  "join": {
+    "eyebrow": "Join / travel together",
+    "title": "We don't need to be big. Just bright enough.",
+    "body": "If you also think \"beautiful\" and \"usable\" shouldn't be a trade-off, come talk. Open an issue, or send a PR — we're friendly to strangers.",
+    "ctaPrimary": "Open an issue",
+    "ctaSecondary": "Read the source"
+  },
+  "footer": {
+    "tagline": "A whole world, woven in code.",
+    "rights": "Irosekai 斓世 · All rights reserved",
+    "builtWith": "Zero-build static site · data via GitHub REST API",
+    "links": {
+      "github": "GitHub",
+      "issues": "Issues",
+      "source": "Site source"
+    }
+  },
+  "err": {
+    "title": "You've wandered somewhere unlit",
+    "body": "There's no page at this address. It's probably still being written.",
+    "back": "Back to the start"
+  }
+}

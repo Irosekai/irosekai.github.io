@@ -1,0 +1,27 @@
+{
+  "name": "irosekai-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "斓世 / Irosekai 组织主页 —— 零构建、i18n、数据驱动的静态站点",
+  "homepage": "https://irosekai.github.io/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Irosekai/irosekai.github.io.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "serve": "node tools/serve.mjs",
+    "og": "node tools/generate-og.mjs",
+    "snapshot": "node tools/snapshot.mjs"
+  },
+  "keywords": [
+    "github-pages",
+    "static-site",
+    "i18n",
+    "zero-build"
+  ]
+}

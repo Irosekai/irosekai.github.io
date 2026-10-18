@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#04050a">
+
+  <title>斓世 Irosekai — 以代码织就斑斓世界</title>
+  <meta name="description" content="斓世（Irosekai / イロセカイ）是一个以色彩与造物为信条的开发者组织，构建工具、界面与一切值得被做出来的东西。">
+
+  <link rel="canonical" href="https://irosekai.github.io/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://irosekai.github.io/">
+  <link rel="alternate" hreflang="ja" href="https://irosekai.github.io/?lang=ja">
+  <link rel="alternate" hreflang="en" href="https://irosekai.github.io/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://irosekai.github.io/">
+
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/favicon.svg">
+  <link rel="manifest" href="./manifest.webmanifest">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="斓世 Irosekai">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="斓世 Irosekai — 以代码织就斑斓世界">
+  <meta property="og:description" content="斓世（Irosekai / イロセカイ）是一个以色彩与造物为信条的开发者组织。">
+  <meta property="og:url" content="https://irosekai.github.io/">
+  <meta property="og:image" content="https://irosekai.github.io/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="斓世 Irosekai — 以代码织就斑斓世界">
+  <meta name="twitter:description" content="斓世（Irosekai / イロセカイ）是一个以色彩与造物为信条的开发者组织。">
+  <meta name="twitter:image" content="https://irosekai.github.io/assets/og.png">
+
+  <!-- 字体：仅取拉丁展示体与等宽体，CJK 交由系统字体，避免数 MB 下载 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap">
+  </noscript>
+
+  <!-- 设计系统：顺序有意义，tokens 必须最先 -->
+  <link rel="stylesheet" href="./styles/tokens.css">
+  <link rel="stylesheet" href="./styles/base.css">
+  <link rel="stylesheet" href="./styles/components.css">
+  <link rel="stylesheet" href="./styles/effects.css">
+
+  <noscript>
+    <!-- 没有 JS 时不能依赖入场动画，直接让所有内容可见 -->
+    <style>
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "斓世",
+    "alternateName": ["Irosekai", "イロセカイ"],
+    "url": "https://irosekai.github.io/",
+    "logo": "https://irosekai.github.io/assets/logo.svg",
+    "foundingDate": "2026-06-26",
+    "sameAs": ["https://github.com/Irosekai"]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">跳到主要内容</a>
+
+  <!-- 背景层 -->
+  <div class="bg-aurora" aria-hidden="true">
+    <span class="bg-aurora__blob bg-aurora__blob--1"></span>
+    <span class="bg-aurora__blob bg-aurora__blob--2"></span>
+    <span class="bg-aurora__blob bg-aurora__blob--3"></span>
+    <span class="bg-aurora__blob bg-aurora__blob--4"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas class="sparks" id="js-sparks" aria-hidden="true"></canvas>
+
+  <!-- 光标与进度 -->
+  <div class="cursor" id="js-cursor" aria-hidden="true">
+    <span class="cursor__ring"></span>
+    <span class="cursor__dot"></span>
+  </div>
+  <div class="progress" aria-hidden="true">
+    <span class="progress__bar" id="js-progress"></span>
+  </div>
+
+  <!-- ══════════ 导航 ══════════ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a class="nav__brand" href="#top">
+        <span class="nav__mark" aria-hidden="true"></span>
+        <span data-i18n="nav.brand">斓世</span>
+        <span class="nav__brand-latin">IROSEKAI</span>
+      </a>
+
+      <nav class="nav__links" data-i18n-aria="a11y.nav" aria-label="主导航">
+        <a href="#about" data-i18n="nav.about">关于</a>
+        <a href="#projects" data-i18n="nav.projects">项目</a>
+        <a href="#activity" data-i18n="nav.activity">动态</a>
+        <a href="#join" data-i18n="nav.join">加入</a>
+      </nav>
+
+      <div class="nav__actions">
+        <div class="lang" id="js-lang" role="group" data-i18n-aria="a11y.langSwitch" aria-label="切换语言">
+          <span class="lang__glider" aria-hidden="true"></span>
+          <button class="lang__btn" type="button" data-locale="zh-CN" aria-pressed="true" lang="zh-CN">中</button>
+          <button class="lang__btn" type="button" data-locale="ja" aria-pressed="false" lang="ja">日</button>
+          <button class="lang__btn" type="button" data-locale="en" aria-pressed="false" lang="en">EN</button>
+        </div>
+
+        <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMobile">
+          <span class="nav__bar" aria-hidden="true"></span>
+          <span class="nav__bar" aria-hidden="true"></span>
+          <span class="sr-only" data-i18n="nav.menu">菜单</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav__mobile" id="navMobile" aria-hidden="true">
+      <a href="#about" data-i18n="nav.about">关于</a>
+      <a href="#projects" data-i18n="nav.projects">项目</a>
+      <a href="#activity" data-i18n="nav.activity">动态</a>
+      <a href="#join" data-i18n="nav.join">加入</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ══════════ 英雄区 ══════════ -->
+    <section class="hero" id="top">
+      <div class="hero__glow" id="js-hero-glow" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <p class="eyebrow hero__overline" data-i18n="hero.overline">DEVELOPMENT COLLECTIVE · EST. 2026</p>
+
+        <h1 class="hero__title">
+          <span class="sr-only">斓世 · Irosekai · いろせかい</span>
+          <span class="hero__word" aria-hidden="true">
+            <span class="hero__word-bloom">斓世</span>
+            <span class="hero__word-fill">斓世</span>
+          </span>
+        </h1>
+
+        <div class="hero__latin" aria-hidden="true">
+          <span class="hero__latin-main">IROSEKAI</span>
+          <span class="hero__latin-sep"></span>
+          <span class="hero__latin-kana">いろせかい</span>
+        </div>
+
+        <p class="h3 hero__tagline" data-i18n="hero.tagline">以代码织就，一整个斑斓世界。</p>
+        <p class="body-text hero__sub" data-i18n="hero.subline">我们构建工具、界面、小型游戏，与一切值得被做出来的东西。不求极简，只求过目不忘。</p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#projects" data-magnetic>
+            <span class="btn__label" data-i18n="hero.ctaPrimary">浏览项目</span>
+            <span class="btn__arrow" aria-hidden="true">↓</span>
+          </a>
+          <a class="btn btn--ghost" href="https://github.com/Irosekai" target="_blank" rel="noopener noreferrer" data-magnetic>
+            <span class="btn__label" data-i18n="hero.ctaSecondary">GitHub 组织</span>
+            <span class="btn__arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span data-i18n="hero.scroll">向下滚动</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ══════════ 跑马灯 ══════════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="js-marquee"></div>
+    </div>
+
+    <!-- ══════════ 关于 ══════════ -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__copy" data-reveal>
+            <p class="eyebrow" data-i18n="about.eyebrow">关于 / 世</p>
+            <h2 class="h2" data-i18n="about.title">一个用颜色思考的开发组</h2>
+            <p class="about__lede" data-i18n="about.lede">「斓」是斑斓，「世」是世间。合起来，就是我们想做的事——把复杂的技术，做成有颜色的东西。</p>
+            <div class="about__body">
+              <p class="body-text" data-i18n="about.body.0">斓世诞生于 2026 年，起于几个厌倦了灰色界面的人。我们不相信软件只能是工具：它可以有脾气、有质感、有让人多看两秒的冲动。</p>
+              <p class="body-text" data-i18n="about.body.1">产出横跨开发工具、实验性界面、小型游戏与基础设施。规模不大，但每一件都经过打磨，也都开在阳光下。</p>
+            </div>
+          </div>
+
+          <div class="about__stats" id="js-stats" data-reveal>
+            <div class="stat">
+              <span class="stat__value stat__value--grad" data-stat="repos">0</span>
+              <span class="stat__label" data-i18n="about.stats.repos">公开仓库</span>
+            </div>
+            <div class="stat">
+              <span class="stat__value stat__value--grad" data-stat="stars">0</span>
+              <span class="stat__label" data-i18n="about.stats.stars">获得星标</span>
+            </div>
+            <div class="stat">
+              <span class="stat__value" data-stat="followers">0</span>
+              <span class="stat__label" data-i18n="about.stats.followers">关注者</span>
+            </div>
+            <div class="stat">
+              <span class="stat__value"><span data-stat="age">0</span><span class="stat__unit" data-i18n="about.stats.ageUnit">年</span></span>
+              <span class="stat__label" data-i18n="about.stats.age">成立至今</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 信条 -->
+        <div class="values">
+          <p class="eyebrow" data-reveal data-i18n="values.eyebrow">信条</p>
+          <div class="values__grid">
+            <article class="value" data-reveal>
+              <span class="value__num" data-i18n="values.items.0.num">01</span>
+              <h3 class="value__title" data-i18n="values.items.0.title">先好看，再能用</h3>
+              <p class="value__body" data-i18n="values.items.0.body">审美不是装饰，是可用性的一部分。我们先让人想用，再确保它确实好用。</p>
+            </article>
+            <article class="value" data-reveal>
+              <span class="value__num" data-i18n="values.items.1.num">02</span>
+              <h3 class="value__title" data-i18n="values.items.1.title">开源是默认选项</h3>
+              <p class="value__body" data-i18n="values.items.1.body">除少数例外，我们的东西都放在阳光下。你能读到每一行，也能改掉每一行。</p>
+            </article>
+            <article class="value" data-reveal>
+              <span class="value__num" data-i18n="values.items.2.num">03</span>
+              <h3 class="value__title" data-i18n="values.items.2.title">慢工，小团队</h3>
+              <p class="value__body" data-i18n="values.items.2.body">不追数量。宁可一年只交出三件，也不交三十件平庸之作。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 项目 ══════════ -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal data-i18n="projects.eyebrow">项目 / 造物</p>
+          <div class="section-head__row">
+            <div data-reveal>
+              <h2 class="h2" data-i18n="projects.title">正在成形的东西</h2>
+              <p class="lede" style="margin-top:1rem" data-i18n="projects.lede">全部实时读取自 GitHub 组织，无需手动维护——有新仓库，这里就会自动长出新的卡片。</p>
+            </div>
+            <div class="projects__controls" data-reveal>
+              <div class="chips" id="js-project-chips"></div>
+              <label class="sort">
+                <span data-i18n="projects.sortLabel">排序</span>
+                <select id="js-sort" data-i18n-aria="projects.sortLabel" aria-label="排序"></select>
+              </label>
+            </div>
+          </div>
+          <p class="state__hint" id="js-project-count" aria-live="polite"></p>
+        </div>
+
+        <p class="projects__note" id="js-projects-note" hidden></p>
+
+        <div class="projects__grid" id="js-projects-grid"></div>
+
+        <noscript>
+          <div class="state" style="margin-top:1rem">
+            <span class="state__glyph" aria-hidden="true">斓</span>
+            <h3 class="state__title">项目列表需要 JavaScript</h3>
+            <p class="state__body">本页的仓库卡片实时读取自 GitHub API，请在浏览器中启用 JavaScript，或直接前往组织主页浏览。</p>
+            <a class="btn btn--ghost" href="https://github.com/Irosekai" target="_blank" rel="noopener noreferrer">
+              <span class="btn__label">github.com/Irosekai</span>
+              <span class="btn__arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- ══════════ 动态 ══════════ -->
+    <section class="section activity" id="activity">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal data-i18n="activity.eyebrow">动态 / 脉搏</p>
+          <div class="section-head__row">
+            <div data-reveal>
+              <h2 class="h2" data-i18n="activity.title">最近在做什么</h2>
+              <p class="lede" style="margin-top:1rem" data-i18n="activity.lede">同样实时来自 GitHub 公开事件，不做二次加工。</p>
+            </div>
+            <a class="btn btn--ghost" href="https://github.com/Irosekai?tab=repositories" target="_blank" rel="noopener noreferrer" data-reveal data-magnetic>
+              <span class="btn__label" data-i18n="activity.viewAll">在 GitHub 查看全部</span>
+              <span class="btn__arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <ul class="activity__list" id="js-activity-list"></ul>
+      </div>
+    </section>
+
+    <!-- ══════════ 加入 ══════════ -->
+    <section class="section join" id="join">
+      <div class="container">
+        <div class="join__panel" data-reveal>
+          <p class="eyebrow" data-i18n="join.eyebrow">加入 / 同行</p>
+          <h2 class="join__title" data-i18n="join.title">我们不必很大，但要足够亮</h2>
+          <p class="join__body" data-i18n="join.body">如果你也认为「好看」和「好用」不该二选一，欢迎来聊。提一个议题，或直接开一个 PR——我们对陌生人一向友好。</p>
+          <div class="join__cta">
+            <a class="btn btn--primary" href="https://github.com/Irosekai/irosekai.github.io/issues/new" target="_blank" rel="noopener noreferrer" data-magnetic>
+              <span class="btn__label" data-i18n="join.ctaPrimary">提一个议题</span>
+              <span class="btn__arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/Irosekai/irosekai.github.io" target="_blank" rel="noopener noreferrer" data-magnetic>
+              <span class="btn__label" data-i18n="join.ctaSecondary">查看源码</span>
+              <span class="btn__arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════ 页脚 ══════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__name">
+            <span class="nav__mark" aria-hidden="true"></span>
+            斓世 <span class="nav__brand-latin">IROSEKAI</span>
+          </span>
+          <p class="footer__tagline" data-i18n="footer.tagline">以代码织就，一整个斑斓世界。</p>
+        </div>
+
+        <div class="footer__cols">
+          <div class="footer__col">
+            <span class="footer__col-title">Links</span>
+            <a href="https://github.com/Irosekai" target="_blank" rel="noopener noreferrer" data-i18n="footer.links.github">GitHub</a>
+            <a href="https://github.com/Irosekai/irosekai.github.io/issues" target="_blank" rel="noopener noreferrer" data-i18n="footer.links.issues">议题</a>
+            <a href="https://github.com/Irosekai/irosekai.github.io" target="_blank" rel="noopener noreferrer" data-i18n="footer.links.source">站点源码</a>
+          </div>
+          <div class="footer__col">
+            <span class="footer__col-title">Language</span>
+            <a href="?lang=zh-CN" hreflang="zh-Hans" lang="zh-CN">简体中文</a>
+            <a href="?lang=ja" hreflang="ja" lang="ja">日本語</a>
+            <a href="?lang=en" hreflang="en" lang="en">English</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© <span id="js-year">2026</span> <span data-i18n="footer.rights">斓世 Irosekai · 保留所有权利</span></span>
+        <span data-i18n="footer.builtWith">零构建静态站 · 数据来自 GitHub REST API</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/main.js"></script>
+  <script>
+    // 年份与「无模块支持」的兜底，越早执行越好
+    document.getElementById('js-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

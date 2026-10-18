@@ -1,0 +1,26 @@
+{
+  "name": "斓世 Irosekai",
+  "short_name": "斓世",
+  "description": "斓世（Irosekai / イロセカイ）是一个以色彩与造物为信条的开发者组织。",
+  "lang": "zh-Hans",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#04050a",
+  "theme_color": "#04050a",
+  "icons": [
+    {
+      "src": "./assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

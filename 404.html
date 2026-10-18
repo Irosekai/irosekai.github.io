@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#04050a">
+  <meta name="robots" content="noindex">
+
+  <title>404 — 斓世 Irosekai</title>
+  <meta name="description" content="这个地址没有对应的页面。">
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <!-- 注意：404 会在任意路径下被返回，因此这里必须使用绝对路径 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/components.css">
+  <link rel="stylesheet" href="/styles/effects.css">
+
+  <style>
+    .err-page {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding-block: var(--space-6);
+    }
+    .err-panel {
+      display: grid;
+      justify-items: center;
+      gap: var(--space-3);
+      text-align: center;
+      border: 0;
+      background: none;
+      padding: 0;
+    }
+    .err-code {
+      font-family: var(--font-display);
+      font-size: clamp(4.5rem, 18vw, 11rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      background: var(--grad-spectrum);
+      background-size: 260% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: spectrum-slide 9s linear infinite;
+    }
+    .err-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: var(--space-3);
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">跳到主要内容</a>
+
+  <div class="bg-aurora" aria-hidden="true">
+    <span class="bg-aurora__blob bg-aurora__blob--1"></span>
+    <span class="bg-aurora__blob bg-aurora__blob--2"></span>
+    <span class="bg-aurora__blob bg-aurora__blob--3"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="err-page container" id="main">
+    <div class="err-panel">
+      <span class="err-code" aria-hidden="true">404</span>
+      <h1 class="h3" data-i18n="err.title">走进了一片未点亮的区域</h1>
+      <p class="body-text" data-i18n="err.body">这个地址没有对应的页面。也许它还在被写出来。</p>
+
+      <div class="err-actions">
+        <a class="btn btn--primary" href="/">
+          <span class="btn__label" data-i18n="err.back">回到首页</span>
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+
+        <div class="lang" id="js-lang" role="group" data-i18n-aria="a11y.langSwitch" aria-label="切换语言">
+          <span class="lang__glider" aria-hidden="true"></span>
+          <button class="lang__btn" type="button" data-locale="zh-CN" aria-pressed="true" lang="zh-CN">中</button>
+          <button class="lang__btn" type="button" data-locale="ja" aria-pressed="false" lang="ja">日</button>
+          <button class="lang__btn" type="button" data-locale="en" aria-pressed="false" lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="/js/404.js"></script>
+</body>
+</html>

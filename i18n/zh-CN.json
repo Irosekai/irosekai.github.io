@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "title": "斓世 Irosekai — 以代码织就斑斓世界",
+    "description": "斓世（Irosekai / イロセカイ）是一个以色彩与造物为信条的开发者组织，构建工具、界面与一切值得被做出来的东西。"
+  },
+  "a11y": {
+    "skip": "跳到主要内容",
+    "langSwitch": "切换语言",
+    "nav": "主导航",
+    "external": "在新标签页打开",
+    "loading": "正在加载"
+  },
+  "nav": {
+    "brand": "斓世",
+    "menu": "菜单",
+    "about": "关于",
+    "projects": "项目",
+    "activity": "动态",
+    "join": "加入"
+  },
+  "lang": {
+    "label": "语言"
+  },
+  "hero": {
+    "overline": "DEVELOPMENT COLLECTIVE · EST. 2026",
+    "tagline": "以代码织就，一整个斑斓世界。",
+    "subline": "我们构建工具、界面、小型游戏，与一切值得被做出来的东西。不求极简，只求过目不忘。",
+    "scroll": "向下滚动",
+    "ctaPrimary": "浏览项目",
+    "ctaSecondary": "GitHub 组织"
+  },
+  "marquee": {
+    "line": "斓世 · IROSEKAI · いろせかい · COLORED WORLD"
+  },
+  "about": {
+    "eyebrow": "关于 / 世",
+    "title": "一个用颜色思考的开发组",
+    "lede": "「斓」是斑斓，「世」是世间。合起来，就是我们想做的事——把复杂的技术，做成有颜色的东西。",
+    "body": [
+      "斓世诞生于 2026 年，起于几个厌倦了灰色界面的人。我们不相信软件只能是工具：它可以有脾气、有质感、有让人多看两秒的冲动。",
+      "产出横跨开发工具、实验性界面、小型游戏与基础设施。规模不大，但每一件都经过打磨，也都开在阳光下。"
+    ],
+    "stats": {
+      "repos": "公开仓库",
+      "stars": "获得星标",
+      "followers": "关注者",
+      "age": "成立至今",
+      "ageUnit": "年"
+    }
+  },
+  "values": {
+    "eyebrow": "信条",
+    "items": [
+      {
+        "num": "01",
+        "title": "先好看，再能用",
+        "body": "审美不是装饰，是可用性的一部分。我们先让人想用，再确保它确实好用。"
+      },
+      {
+        "num": "02",
+        "title": "开源是默认选项",
+        "body": "除少数例外，我们的东西都放在阳光下。你能读到每一行，也能改掉每一行。"
+      },
+      {
+        "num": "03",
+        "title": "慢工，小团队",
+        "body": "不追数量。宁可一年只交出三件，也不交三十件平庸之作。"
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "项目 / 造物",
+    "title": "正在成形的东西",
+    "lede": "全部实时读取自 GitHub 组织，无需手动维护——有新仓库，这里就会自动长出新的卡片。",
+    "filterAll": "全部",
+    "sortLabel": "排序",
+    "sort": {
+      "updated": "最近更新",
+      "stars": "星标最多",
+      "name": "名称顺序"
+    },
+    "count": "{count} 个公开仓库",
+    "state": {
+      "loading": "正在从 GitHub 拉取…",
+      "empty": {
+        "title": "这里还很安静",
+        "body": "组织刚刚起步，第一个仓库正在被写出来。等它出现，这张卡片会自己长上来。"
+      },
+      "error": {
+        "title": "没拉到数据",
+        "body": "可能是网络中断，或 GitHub API 的匿名限流。下面是本地快照。",
+        "retry": "重试"
+      }
+    },
+    "card": {
+      "noDescription": "尚未撰写简介",
+      "stars": "星标",
+      "forks": "复刻",
+      "updated": "更新于",
+      "open": "打开仓库",
+      "archived": "已归档",
+      "new": "新",
+      "topics": "标签"
+    },
+    "emptyCta": "去 GitHub 看看"
+  },
+  "activity": {
+    "eyebrow": "动态 / 脉搏",
+    "title": "最近在做什么",
+    "lede": "同样实时来自 GitHub 公开事件，不做二次加工。",
+    "empty": "还没有可展示的公开动态。",
+    "viewAll": "在 GitHub 查看全部",
+    "unknown": "有新的活动",
+    "types": {
+      "PushEvent": "推送代码到",
+      "CreateEvent": "创建了",
+      "DeleteEvent": "删除了分支",
+      "PullRequestEvent": "提交了拉取请求",
+      "IssuesEvent": "更新了议题",
+      "IssueCommentEvent": "评论了议题",
+      "ReleaseEvent": "发布了版本",
+      "WatchEvent": "关注了",
+      "ForkEvent": "复刻了",
+      "PublicEvent": "公开了仓库",
+      "MemberEvent": "调整了成员"
+    }
+  },
+  "join": {
+    "eyebrow": "加入 / 同行",
+    "title": "我们不必很大，但要足够亮",
+    "body": "如果你也认为「好看」和「好用」不该二选一，欢迎来聊。提一个议题，或直接开一个 PR——我们对陌生人一向友好。",
+    "ctaPrimary": "提一个议题",
+    "ctaSecondary": "查看源码"
+  },
+  "footer": {
+    "tagline": "以代码织就，一整个斑斓世界。",
+    "rights": "斓世 Irosekai · 保留所有权利",
+    "builtWith": "零构建静态站 · 数据来自 GitHub REST API",
+    "links": {
+      "github": "GitHub",
+      "issues": "议题",
+      "source": "站点源码"
+    }
+  },
+  "err": {
+    "title": "走进了一片未点亮的区域",
+    "body": "这个地址没有对应的页面。也许它还在被写出来。",
+    "back": "回到首页"
+  }
+}
