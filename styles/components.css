@@ -42,25 +42,18 @@
   letter-spacing: 0.04em;
 }
 
+/* 站标：矢量字形，透明底，靠描边自发光——不需要底色块 */
 .nav__mark {
-  width: 26px;
-  height: 26px;
-  border-radius: 9px;
-  background: conic-gradient(
-    from 140deg,
-    var(--violet),
-    var(--cyan),
-    var(--lime),
-    var(--amber),
-    var(--rose),
-    var(--violet)
-  );
-  box-shadow: 0 0 22px -6px rgb(124 92 255 / 0.9);
-  transition: transform var(--dur-3) var(--ease-spring);
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow(0 0 12px rgb(73 107 250 / 0.5));
+  transition: transform var(--dur-3) var(--ease-spring),
+    filter var(--dur-3) var(--ease-spring);
 }
 
 .nav__brand:hover .nav__mark {
-  transform: rotate(180deg) scale(1.08);
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 18px rgb(73 107 250 / 0.85));
 }
 
 .nav__brand-latin {
@@ -278,47 +271,28 @@
   margin-bottom: var(--space-2);
 }
 
-/* 巨型字形：bloom + fill 双图层叠放 */
+/* 巨型站标：单张矢量图 + 两层 drop-shadow 当辉光（原来是 bloom + fill 双层文字） */
 .hero__word {
   position: relative;
-  display: inline-grid;
+  /* 必须是块级 grid：inline-grid 会参与行内基线对齐，
+     在图片下方多留出一大截看不见的高度，英雄区整体被推高。 */
+  display: grid;
   place-items: center;
   margin-block: clamp(0.2rem, 1vw, 0.8rem);
 }
 
-.hero__word > span {
-  grid-area: 1 / 1;
-}
-
-.hero__word-bloom,
-.hero__word-fill {
-  font-family: var(--font-cjk);
-  font-size: var(--fs-mega);
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  white-space: nowrap;
-}
-
-.hero__word-bloom {
-  color: var(--violet);
-  opacity: 0.32;
-  filter: blur(54px);
-  /* 只提亮、不发暗，保证在任何背景上都是光晕而不是阴影 */
-  mix-blend-mode: screen;
-  transform: translateZ(0);
+.hero__logo {
+  /* 沿用 --fs-mega 的流体尺度：×1.6 让「い」的墨迹高度与原巨型汉字基本一致。
+     图形在 256 画布里四周自带约 24% 透明留白，用等量负外边距收回，
+     否则英雄区会被这层看不见的空白撑高一大截。 */
+  width: calc(var(--fs-mega) * 1.6);
+  height: auto;
+  margin-block: calc(var(--fs-mega) * -0.38);
+  --logo-glow: drop-shadow(0 0 34px rgb(73 107 250 / 0.5))
+    drop-shadow(0 0 90px rgb(124 92 255 / 0.34));
+  filter: var(--logo-glow);
   user-select: none;
-}
-
-.hero__word-fill {
-  background: var(--grad-spectrum);
-  background-size: 130% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: spectrum-slide 11s linear infinite;
-  will-change: background-position;
+  -webkit-user-drag: none;
 }
 
 .hero__latin {

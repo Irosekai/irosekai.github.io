@@ -17,7 +17,7 @@
       "purpose": "any"
     },
     {
-      "src": "./assets/logo.svg",
+      "src": "./assets/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "maskable"

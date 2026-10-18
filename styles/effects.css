@@ -240,21 +240,23 @@ body.has-custom-cursor button {
   transform: none;
 }
 
-/* 逐字入场（英雄区标题） */
-.hero__word-fill {
-  animation: spectrum-slide 11s linear infinite, glyph-in 1.5s var(--ease-out) 0.1s both;
+/* 巨型站标入场。
+   注意：滤镜里必须带上同一份辉光——animation-fill-mode: both 会保留终帧的
+   filter，直接写 blur(0) 会把 .hero__logo 上的 --logo-glow 永久覆盖掉。 */
+.hero__logo {
+  animation: logo-in 1.5s var(--ease-out) 0.1s both;
 }
 
-@keyframes glyph-in {
+@keyframes logo-in {
   from {
     opacity: 0;
     transform: translateY(28px) scale(0.965);
-    filter: blur(14px);
+    filter: blur(14px) var(--logo-glow);
   }
   to {
     opacity: 1;
     transform: none;
-    filter: blur(0);
+    filter: blur(0) var(--logo-glow);
   }
 }
 

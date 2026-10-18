@@ -80,8 +80,9 @@
 │   └── fallback.json       # 离线快照（API 不可达时的兜底）
 │
 ├── assets/
-│   ├── favicon.svg
-│   ├── logo.svg
+│   ├── favicon.svg         # 站标（深底圆角方形，供标签页与 PWA 使用）
+│   ├── logo.svg            # 站标原图（透明底 + 墨色描边，用于亮色界面与结构化数据）
+│   ├── logo-inverse.svg    # 站标反白版（仅把墨色换成纸色，供深色界面使用）
 │   └── og.png              # 1200×630 社交分享图
 │
 ├── styles/
@@ -371,6 +372,19 @@ const MODULES = [
 
 Google Fonts 用 `media="print" onload="this.media='all'"` 异步加载，不阻塞首屏渲染；`<noscript>` 里保留了同步版本。
 
+### 站标
+
+品牌图形是一枚几何平假名「い」，全为矢量描边，放到多大都不糊：
+
+| 文件 | 用途 |
+|---|---|
+| `assets/logo.svg` | 原图：透明底 + 墨色 `#171C2C` 描边，为**亮色界面**设计 |
+| `assets/logo-inverse.svg` | 同形同色系，仅把墨色换成纸色 `#F4F0E8`，供站内**深色界面**使用 |
+| `assets/favicon.svg` | 深底圆角方形 + 反白字形，供标签页与 PWA 使用 |
+
+站内出现的位置：导航栏与页脚的 `.nav__mark`、英雄区的巨型站标 `.hero__logo`——三处都由 `logo-inverse.svg` 驱动，换标只需替换文件。
+辉光一律用 `filter: drop-shadow()` 而不是 `box-shadow`：图形是透明底的，该发光的只有描边轮廓，`box-shadow` 会画出一个方形光斑。
+
 ### 动效原则
 
 所有动效都遵循同一套降级策略：
@@ -388,7 +402,7 @@ JS 侧同样会检查 `prefersReducedMotion()`，直接渲染终态而不是动�
 
 - 语义化标签（`header` / `main` / `section` / `footer` / `nav`）
 - 跳转到主内容的链接（键盘 Tab 第一个可达）
-- `.sr-only` 提供的屏幕阅读器文本（巨型字形本身是 `aria-hidden`）
+- `.sr-only` 提供的屏幕阅读器文本（巨型站标本身是 `aria-hidden` + `alt=""` 的装饰图）
 - 所有交互元素有可见的 `:focus-visible` 焦点环
 - 语言切换器为 `role="group"` + `aria-pressed`，支持左右方向键
 - 移动菜单收起时 `visibility: hidden`，链接会退出 Tab 顺序
@@ -461,7 +475,7 @@ GITHUB_TOKEN=ghp_xxx node tools/snapshot.mjs
 - **`data/fallback.json` 会过期**。它只是兜底，不追求实时；需要时手动跑 `npm run snapshot`。
 - **中文本地化断行**：CSS 无法像处理西文那样避免 CJK 词内断行（如「极/简」），已用 `text-wrap: pretty/balance` 尽量改善。
 - **自定义光标不影响移动端**：`@media (hover: none)` 下会直接隐藏并恢复系统光标。
-- **`og.png` 为抽象视觉**，不含文字。需要在社交平台显示标题的话请替换为带文字的成品图。
+- **`og.png` 为抽象视觉**，不含文字。需要在社交平台显示标题的话请替换为带文字的成品图。它目前仍沿用旧站标的环形母题，没有跟着新站标改——`tools/generate-og.mjs` 里要重绘的是「い」的两条笔画，不是现成的圆环。
 
 ---
 

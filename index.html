@@ -103,7 +103,8 @@
   <header class="nav" id="nav">
     <div class="nav__inner container">
       <a class="nav__brand" href="#top">
-        <span class="nav__mark" aria-hidden="true"></span>
+        <!-- 站标：深色界面用反白版（同形同色系，仅把墨色换成纸色），亮色界面用 assets/logo.svg -->
+        <img class="nav__mark" src="./assets/logo-inverse.svg" alt="" width="30" height="30" aria-hidden="true" decoding="async">
         <span data-i18n="nav.brand">斓世</span>
         <span class="nav__brand-latin">IROSEKAI</span>
       </a>
@@ -149,9 +150,9 @@
 
         <h1 class="hero__title">
           <span class="sr-only">斓世 · Irosekai · いろせかい</span>
+          <!-- 巨型站标：矢量字形代替原来的巨型汉字，缩放不糊 -->
           <span class="hero__word" aria-hidden="true">
-            <span class="hero__word-bloom">斓世</span>
-            <span class="hero__word-fill">斓世</span>
+            <img class="hero__logo" src="./assets/logo-inverse.svg" alt="" width="256" height="256" decoding="async" fetchpriority="high">
           </span>
         </h1>
 
@@ -333,7 +334,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <span class="footer__name">
-            <span class="nav__mark" aria-hidden="true"></span>
+            <img class="nav__mark" src="./assets/logo-inverse.svg" alt="" width="30" height="30" aria-hidden="true" decoding="async">
             斓世 <span class="nav__brand-latin">IROSEKAI</span>
           </span>
           <p class="footer__tagline" data-i18n="footer.tagline">以代码织就，一整个斑斓世界。</p>

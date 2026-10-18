@@ -128,7 +128,7 @@ function render() {
     [90, 660, 400, SPECTRUM[3], 0.16],
   ];
 
-  // 光环（呼应 logo）
+  // 光环（旧站标的环形母题；新站标的「い」尚未在这里重绘）
   const orb = { x: 935, y: 315, radius: 152, width: 26 };
 
   for (let y = 0; y < HEIGHT; y += 1) {
