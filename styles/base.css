@@ -65,7 +65,7 @@ ol {
 
 /* 焦点可见性：键盘用户优先 */
 :focus-visible {
-  outline: 2px solid var(--cyan);
+  outline: 2px solid var(--violet);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -115,9 +115,10 @@ main {
 .eyebrow::before {
   content: "";
   width: 26px;
-  height: 1px;
+  height: 1.5px;
   background: var(--grad-spectrum);
   background-size: 200% 100%;
+  border-radius: 1px;
   animation: spectrum-slide 6s linear infinite;
 }
 
@@ -227,7 +228,8 @@ main {
   overflow: hidden;
   isolation: isolate;
   transition: transform var(--dur-2) var(--ease-out),
-    box-shadow var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out);
+    box-shadow var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out),
+    background var(--dur-2) var(--ease-out);
 }
 
 .btn__label {
@@ -246,7 +248,7 @@ main {
 }
 
 .btn--primary {
-  box-shadow: 0 10px 40px -18px rgb(244 240 232 / 0.5);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn--primary::before {
@@ -266,43 +268,25 @@ main {
 }
 
 .btn--primary:hover {
-  color: #05060b;
-  box-shadow: var(--glow-violet);
+  color: #fff;
+  box-shadow: var(--shadow-lifted);
+  transform: translateY(-1px);
 }
 
 .btn--ghost {
   --btn-bg: transparent;
   --btn-fg: var(--paper);
   border: 1px solid var(--line-strong);
-  backdrop-filter: blur(8px);
 }
 
 .btn--ghost:hover {
-  border-color: transparent;
-  background: var(--surface-2);
-  box-shadow: inset 0 0 0 1px var(--line-strong);
+  border-color: var(--violet);
+  background: rgb(184 169 232 / 0.08);
+  transform: translateY(-1px);
 }
 
 .btn--ghost::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  padding: 1px;
-  background: var(--grad-spectrum);
-  background-size: 240% 100%;
-  opacity: 0;
-  transition: opacity var(--dur-2) var(--ease-out);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  animation: spectrum-slide 7s linear infinite;
-}
-
-.btn--ghost:hover::before {
-  opacity: 1;
+  content: none;
 }
 
 .btn:active {
@@ -371,5 +355,32 @@ main {
 @keyframes spin-slow {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* ── 优雅呼吸动画 ─────────────────────────────────────────────── */
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-6px) rotate(0.5deg);
+  }
+  66% {
+    transform: translateY(-3px) rotate(-0.3deg);
   }
 }

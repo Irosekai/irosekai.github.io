@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#04050a">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#faf8f5">
 
   <title>斓世 Irosekai — 以代码织就斑斓世界</title>
   <meta name="description" content="斓世（Irosekai / イロセカイ）是一个以色彩与造物为信条的开发者组织，构建工具、界面与一切值得被做出来的东西。">
@@ -36,15 +36,15 @@
   <meta name="twitter:description" content="斓世（Irosekai / イロセカイ）是一个以色彩与造物为信条的开发者组织。">
   <meta name="twitter:image" content="https://irosekai.github.io/assets/og.png">
 
-  <!-- 字体：仅取拉丁展示体与等宽体，CJK 交由系统字体，避免数 MB 下载 -->
+  <!-- 字体：等宽体 + M PLUS Rounded 1c（筑紫B丸ゴシック的 Web 备选） -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
     media="print" onload="this.media='all'">
   <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
   </noscript>
 
   <!-- 设计系统：顺序有意义，tokens 必须最先 -->
@@ -104,7 +104,7 @@
     <div class="nav__inner container">
       <a class="nav__brand" href="#top">
         <!-- 站标：深色界面用反白版（同形同色系，仅把墨色换成纸色），亮色界面用 assets/logo.svg -->
-        <img class="nav__mark" src="./assets/logo-inverse.svg" alt="" width="30" height="30" aria-hidden="true" decoding="async">
+        <img class="nav__mark" src="./assets/logo.svg" alt="" width="30" height="30" aria-hidden="true" decoding="async">
         <span data-i18n="nav.brand">斓世</span>
         <span class="nav__brand-latin">IROSEKAI</span>
       </a>
@@ -152,7 +152,7 @@
           <span class="sr-only">斓世 · Irosekai · いろせかい</span>
           <!-- 巨型站标：矢量字形代替原来的巨型汉字，缩放不糊 -->
           <span class="hero__word" aria-hidden="true">
-            <img class="hero__logo" src="./assets/logo-inverse.svg" alt="" width="256" height="256" decoding="async" fetchpriority="high">
+            <img class="hero__logo" src="./assets/logo.svg" alt="" width="256" height="256" decoding="async" fetchpriority="high">
           </span>
         </h1>
 
@@ -334,7 +334,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <span class="footer__name">
-            <img class="nav__mark" src="./assets/logo-inverse.svg" alt="" width="30" height="30" aria-hidden="true" decoding="async">
+            <img class="nav__mark" src="./assets/logo.svg" alt="" width="30" height="30" aria-hidden="true" decoding="async">
             斓世 <span class="nav__brand-latin">IROSEKAI</span>
           </span>
           <p class="footer__tagline" data-i18n="footer.tagline">以代码织就，一整个斑斓世界。</p>

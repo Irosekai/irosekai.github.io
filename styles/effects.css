@@ -1,9 +1,9 @@
 /* ══════════════════════════════════════════════════════════════════
-   特效层：极光背景 / 颗粒 / 星尘 / 光标 / 入场 / 滚动进度
+   特效层：柔和背景 / 颗粒 / 星尘 / 光标 / 入场 / 滚动进度
    所有动效均尊重 prefers-reduced-motion。
    ══════════════════════════════════════════════════════════════════ */
 
-/* ══════════════ 极光背景 ══════════════ */
+/* ══════════════ 柔和背景 ══════════════ */
 
 .bg-aurora {
   position: fixed;
@@ -11,17 +11,15 @@
   z-index: var(--z-bg);
   overflow: hidden;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 90% 60% at 50% -10%, #10162e 0%, transparent 62%),
-    var(--ink-0);
+  background: var(--ink-0);
 }
 
 .bg-aurora__blob {
   position: absolute;
   display: block;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.5;
+  filter: blur(100px);
+  opacity: 0.45;
   will-change: transform;
 }
 
@@ -30,7 +28,7 @@
   height: 62vw;
   top: -22vw;
   left: -12vw;
-  background: radial-gradient(circle, rgb(124 92 255 / 0.5), transparent 68%);
+  background: radial-gradient(circle, rgb(184 169 232 / 0.3), transparent 68%);
   animation: drift-1 28s var(--ease-io) infinite alternate;
 }
 
@@ -39,7 +37,7 @@
   height: 48vw;
   top: 6vh;
   right: -14vw;
-  background: radial-gradient(circle, rgb(34 217 232 / 0.34), transparent 68%);
+  background: radial-gradient(circle, rgb(137 212 223 / 0.22), transparent 68%);
   animation: drift-2 34s var(--ease-io) infinite alternate;
 }
 
@@ -48,7 +46,7 @@
   height: 54vw;
   bottom: -24vw;
   left: 16vw;
-  background: radial-gradient(circle, rgb(255 61 154 / 0.3), transparent 68%);
+  background: radial-gradient(circle, rgb(232 152 184 / 0.2), transparent 68%);
   animation: drift-3 31s var(--ease-io) infinite alternate;
 }
 
@@ -57,7 +55,7 @@
   height: 38vw;
   bottom: 4vh;
   right: 6vw;
-  background: radial-gradient(circle, rgb(255 179 71 / 0.16), transparent 68%);
+  background: radial-gradient(circle, rgb(240 184 138 / 0.14), transparent 68%);
   animation: drift-4 39s var(--ease-io) infinite alternate;
 }
 
@@ -97,15 +95,15 @@
   }
 }
 
-/* ══════════════ 颗粒噪点 ══════════════ */
+/* ══════════════ 颗粒纹理（柔和点阵） ══════════════ */
 
 .grain {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: overlay;
+  opacity: 0.03;
+  mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 180px 180px;
 }
@@ -124,7 +122,7 @@
 }
 
 .sparks.is-ready {
-  opacity: 0.85;
+  opacity: 0.55;
 }
 
 /* ══════════════ 滚动进度 ══════════════ */
@@ -176,7 +174,6 @@
   margin: -3px 0 0 -3px;
   border-radius: 50%;
   background: var(--paper);
-  mix-blend-mode: difference;
   will-change: transform;
 }
 
@@ -187,7 +184,7 @@
   width: 34px;
   height: 34px;
   margin: -17px 0 0 -17px;
-  border: 1px solid rgb(244 240 232 / 0.42);
+  border: 1px solid rgb(0 0 0 / 0.18);
   border-radius: 50%;
   transition: width var(--dur-2) var(--ease-out),
     height var(--dur-2) var(--ease-out), margin var(--dur-2) var(--ease-out),
@@ -200,8 +197,8 @@
   width: 62px;
   height: 62px;
   margin: -31px 0 0 -31px;
-  border-color: rgb(124 92 255 / 0.75);
-  background: rgb(124 92 255 / 0.1);
+  border-color: rgb(184 169 232 / 0.5);
+  background: rgb(184 169 232 / 0.08);
 }
 
 .cursor.is-pressed .cursor__ring {
@@ -211,7 +208,7 @@
   border-color: var(--paper);
 }
 
-/* 仅在精细指针设备隐藏原生光标（由 JS 添加 class，失败安全） */
+/* 仅在精细指针设备隐藏原生光标 */
 body.has-custom-cursor,
 body.has-custom-cursor a,
 body.has-custom-cursor button {
@@ -228,9 +225,9 @@ body.has-custom-cursor button {
 
 [data-reveal] {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity var(--dur-3) var(--ease-out),
-    transform var(--dur-3) var(--ease-out);
+  transform: translateY(22px);
+  transition: opacity var(--dur-4) var(--ease-elegant),
+    transform var(--dur-4) var(--ease-elegant);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
@@ -240,35 +237,31 @@ body.has-custom-cursor button {
   transform: none;
 }
 
-/* 巨型站标入场。
-   注意：滤镜里必须带上同一份辉光——animation-fill-mode: both 会保留终帧的
-   filter，直接写 blur(0) 会把 .hero__logo 上的 --logo-glow 永久覆盖掉。 */
+/* 巨型站标入场 */
 .hero__logo {
-  animation: logo-in 1.5s var(--ease-out) 0.1s both;
+  animation: logo-in 1.8s var(--ease-elegant) 0.1s both;
 }
 
 @keyframes logo-in {
   from {
     opacity: 0;
-    transform: translateY(28px) scale(0.965);
-    filter: blur(14px) var(--logo-glow);
+    transform: translateY(20px) scale(0.97);
   }
   to {
     opacity: 1;
     transform: none;
-    filter: blur(0) var(--logo-glow);
   }
 }
 
 /* 导航入场 */
 .nav {
-  animation: nav-in 0.9s var(--ease-out) both;
+  animation: nav-in 1s var(--ease-elegant) both;
 }
 
 @keyframes nav-in {
   from {
     opacity: 0;
-    transform: translateY(-14px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
@@ -276,7 +269,7 @@ body.has-custom-cursor button {
   }
 }
 
-/* ══════════════ 3D 倾斜 ══════════════ */
+/* ══════════════ 3D 倾斜（保留但柔和） ══════════════ */
 
 .tilt {
   transform-style: preserve-3d;
@@ -284,7 +277,7 @@ body.has-custom-cursor button {
 }
 
 .tilt > * {
-  transform: translateZ(24px);
+  transform: translateZ(12px);
 }
 
 /* ══════════════ 磁吸按钮 ══════════════ */
@@ -312,6 +305,24 @@ body.has-custom-cursor button {
     opacity: 1;
     transform: none;
   }
+}
+
+/* ══════════════ 优雅分隔线动画 ══════════════ */
+
+.section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: var(--line);
+  transition: width 1.2s var(--ease-elegant);
+}
+
+.section.is-in::after {
+  width: 80%;
 }
 
 /* ══════════════ 减少动态 ══════════════ */
@@ -342,7 +353,7 @@ body.has-custom-cursor button {
   }
 
   .bg-aurora__blob {
-    opacity: 0.34;
+    opacity: 0.2;
   }
 
   .sparks,

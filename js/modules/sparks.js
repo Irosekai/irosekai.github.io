@@ -7,11 +7,11 @@
 import { qs, prefersReducedMotion, clamp } from '../core/dom.js';
 
 const PALETTE = [
-  [124, 92, 255],
-  [34, 217, 232],
-  [182, 255, 92],
-  [255, 179, 71],
-  [255, 61, 154],
+  [184, 169, 232],
+  [137, 212, 223],
+  [168, 216, 154],
+  [240, 184, 138],
+  [232, 152, 184],
 ];
 
 export function initSparks({ site }) {
@@ -98,7 +98,7 @@ export function initSparks({ site }) {
     }
 
     // 粒子本体
-    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalCompositeOperation = 'source-over';
     for (const p of particles) {
       // 指针排斥
       if (pointer.active) {
